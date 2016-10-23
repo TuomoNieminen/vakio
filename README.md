@@ -24,20 +24,14 @@ unique_rows <- 1:(3^13)
 
 # a single simulation iteration is a sample of <n> rows
 n <- nrow(rivit) # 2284
-```
 
-
-```r
 # create an empty data.frame to store the simulated integer vectors as rows
 df <- matrix(NA, nrow = simsize, ncol = n)
 
 # draw a sample of <n> from the unique rows with replacement
 # repeat <simsize> times and store the sampled integers
 for(i in 1:simsize) df[i, ] <- sample(unique_rows, size = n, replace = T)
-```
 
-
-```r
 # for each row, check if there are more than 2 of the same integer (this might be slow)
 results <- apply(df, 1, FUN = function(v) any(table(v)>2))
 
@@ -46,7 +40,7 @@ sum(results)/simsize
 ```
 
 ```
-## [1] 3e-04
+## [1] 4e-04
 ```
 
 
@@ -61,10 +55,7 @@ These codes are also found in outcome_proportions.R
 # load the data
 rivit <- read.csv2("Tilastot.csv", stringsAsFactors = FALSE)
 nr <- nrow(rivit)
-```
 
-
-```r
 # create a list of tables of 1 x 2 frequencies
 freqs <- apply(rivit, 1, table)
 
@@ -83,10 +74,7 @@ cum_freqs <- cumsum(freqs)
 
 # compute cumulative proportions
 cum_prop <- cum_freqs / cumsum(rep(13, nr))
-```
 
-
-```r
 # draw an empty plot
 plot(1:nr, 
      main = "Cumulative proportions of match outcomes
@@ -106,6 +94,6 @@ outcomes <- paste0(outcomes, " (", round(100*cum_prop[nr, ],0), "%)")
 legend("bottomright", legend = outcomes, col = 1:3, lty = 1, cex = 0.6, pt.cex = 1)
 ```
 
-![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 
