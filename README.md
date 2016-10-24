@@ -40,7 +40,7 @@ sum(results)/simsize
 ```
 
 ```
-## [1] 0.0017
+## [1] 6e-04
 ```
 
 
@@ -88,4 +88,58 @@ legend("bottomright", legend = outcomes, col = 1:3, lty = 1)
 
 ![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
+# Frequencies of 0, 1, .., 13 homewins
+
+
+```r
+# According to the data, the average probability of a hometeam win ("1") is 0.45
+# and the average probability of a draw or a loss are almost identical
+
+# Here we compute the expected frequencies of rows with 0, 1, ..., 13 homewins 
+# and then compare to the observed frequencies
+
+# Expected homewins assumptions
+# 1. the probability of a homewin is 0.45 for each match.
+# 2. the probability of not a homewin is 0.55 for each match
+
+
+# objects freqs and nr are available
+
+# number of matches
+n <- 13
+
+# probability of home win in a given match
+p <- 0.45
+
+# expected proportions using a binomial model
+homewins <- 0:13
+TN <- dbinom(homewins, size = n, prob = p)
+
+# observed frequencies of 0, 1, .., 13 homewins
+observed <- sapply(homewins, FUN = function(wins) sum(freqs[["1"]]==wins))
+
+# expected frequencies
+expected <- round(TN*nr)
+
+# combine
+cbind(expected, observed)
+```
+
+```
+##       expected observed
+##  [1,]        1        2
+##  [2,]       10       10
+##  [3,]       50       47
+##  [4,]      151      142
+##  [5,]      308      330
+##  [6,]      454      427
+##  [7,]      495      484
+##  [8,]      405      411
+##  [9,]      249      252
+## [10,]      113      125
+## [11,]       37       39
+## [12,]        8       13
+## [13,]        1        2
+## [14,]        0        0
+```
 
