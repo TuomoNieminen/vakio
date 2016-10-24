@@ -1,14 +1,40 @@
+# Tuomo A. Nieminen 23.10.2016
+
+# According to the data, the average probability of a hometeam win ("1") is 0.45
+# and the average probability of a draw or a loss are almost identical
+
+# Here we compute the expected frequencies of rows with 0, 1, ..., 13 homewins 
+# and then compare to the observed frequencies
+
+# Expected homewins assumptions
+# 1. the probability of a homewin is 0.45 for each match.
+# 2. the probability of not a homewin is 0.55 for each match
+
 # number of matches
 n <- 13
 
 # probability of home win in a given match
 p <- 0.45
 
-# probabilities of rows as a function of home_wins
-home_win <- 0:13
-TN <- dbinom(home_win, size = n, prob = p)
+# expected proportions using a binomial model
+homewins <- 0:13
+TN <- dbinom(homewins, size = n, prob = p)
 
-# plot the probabilities
-barplot(height =  TN, names = kotivoitot, ylim = c(0, 0.3), 
-        main = "Rivien todennäköisyydet esiintyvien kotivoittojen suhteen")
-text(kotivoitot*1.25 + 0.5, TN , labels = round(TN, 2), pos = 3)
+# load the data
+rivit <- read.csv2("Tilastot.csv", stringsAsFactors = FALSE)
+nr <- nrow(rivit)
+
+# create a list of tables of 1 x 2 frequencies
+freqs <- apply(rivit, 1, table)
+
+# combine the lists to a data.frame (ignore warning)
+freqs <- as.data.frame(do.call(rbind, freqs))
+
+# observed frequencies of 0, 1, .., 13 homewins
+observed <- sapply(homewins, FUN = function(wins) sum(freqs[["1"]]==wins))
+
+# expected frequencies
+expected <- round(TN*nr)
+
+# combine
+cbind(expected, observed)
