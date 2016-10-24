@@ -4,11 +4,10 @@
 rivit <- read.csv2("Tilastot.csv", stringsAsFactors = FALSE)
 nr <- nrow(rivit)
 
-# create a list of tables of 1 x 2 frequencies
-freqs <- apply(rivit, 1, table)
+# create a data.frame storing tables of outcome ("1", "x", "2") frequencies
 
-# combine the lists to a data.frame (ignore warning)
-freqs <- as.data.frame(do.call(rbind, freqs))
+freqs <- apply(rivit, 1, FUN = function(row) table(factor(row, levels = c("1","X","2"))))
+freqs <- as.data.frame(t(freqs))
 
 # compute cumulative frequencies
 cum_freqs <- cumsum(freqs)
@@ -32,5 +31,5 @@ for(i in 1:3) {
 # add a legend to the plot
 outcomes <- names(cum_prop)
 outcomes <- paste0(outcomes, " (", round(100*cum_prop[nr, ],0), "%)")
-legend("bottomright", legend = outcomes, col = 1:3, lty = 1, cex = 0.6, pt.cex = 1)
+legend("bottomright", legend = outcomes, col = 1:3, lty = 1)
 
