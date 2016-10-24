@@ -24,11 +24,9 @@ TN <- dbinom(homewins, size = n, prob = p)
 rivit <- read.csv2("Tilastot.csv", stringsAsFactors = FALSE)
 nr <- nrow(rivit)
 
-# create a list of tables of 1 x 2 frequencies
-freqs <- apply(rivit, 1, table)
-
-# combine the lists to a data.frame (ignore warning)
-freqs <- as.data.frame(do.call(rbind, freqs))
+# create a data.frame storing tables of outcome ("1", "x", "2") frequencies
+freqs <- apply(rivit, 1, FUN = function(row) table(factor(row, levels = c("1","X","2"))))
+freqs <- as.data.frame(t(freqs))
 
 # observed frequencies of 0, 1, .., 13 homewins
 observed <- sapply(homewins, FUN = function(wins) sum(freqs[["1"]]==wins))
