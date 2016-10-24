@@ -5,7 +5,6 @@ rivit <- read.csv2("Tilastot.csv", stringsAsFactors = FALSE)
 nr <- nrow(rivit)
 
 # create a data.frame storing tables of outcome ("1", "x", "2") frequencies
-
 freqs <- apply(rivit, 1, FUN = function(row) table(factor(row, levels = c("1","X","2"))))
 freqs <- as.data.frame(t(freqs))
 
@@ -32,4 +31,3 @@ for(i in 1:3) {
 outcomes <- names(cum_prop)
 outcomes <- paste0(outcomes, " (", round(100*cum_prop[nr, ],0), "%)")
 legend("bottomright", legend = outcomes, col = 1:3, lty = 1)
-
