@@ -27,3 +27,4 @@ results <- apply(df, 1, FUN = function(v) any(table(v)>2))
 
 # compute the proportion of true cases
 pthreeormore <- sum(results)/simsize
+print(pthreeormore)

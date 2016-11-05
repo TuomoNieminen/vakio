@@ -28,7 +28,6 @@ The probability of observing three or more identical rows during the years inclu
 
 ```{r}
 source("prob_sim.R")
-pthreeormore
 ```
 
 
@@ -52,6 +51,5 @@ Expected homewins assumptions
 
 ```{r}
 source("homewins.R")
-homewin_frequencies
 ```
 
