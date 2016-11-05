@@ -69,9 +69,7 @@ According to the data, the proportion of hometeam wins ("1") is 0.45 and the pro
 
 Here we compute the expected frequencies of rows with 0, 1, ..., 13 homewins and then compare to the observed frequencies.  
 
-Expected homewins assumptions
-1. the probability of a homewin is 0.45 for each match.
-2. the probability of not a homewin is 0.55 for each match  
+Expected homewins assumption: the probability of a homewin is 0.45 for each match.
 
 
 ```r
