@@ -35,4 +35,4 @@ observed <- sapply(homewins, FUN = function(wins) sum(freqs[["1"]]==wins))
 expected <- round(TN*nr)
 
 # combine
-cbind(expected, observed)
+homewin_frequencies <- cbind(expected, observed)
