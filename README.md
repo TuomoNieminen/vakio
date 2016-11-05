@@ -45,11 +45,11 @@ The probability of observing three or more identical rows during the years inclu
 
 ```r
 source("prob_sim.R")
-ptwoormore
+pthreeormore
 ```
 
 ```
-## [1] 0.001
+## [1] 7e-04
 ```
 
 

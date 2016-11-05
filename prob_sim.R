@@ -26,4 +26,4 @@ for(i in 1:simsize) df[i, ] <- sample(unique_rows, size = n, replace = T)
 results <- apply(df, 1, FUN = function(v) any(table(v)>2))
 
 # compute the proportion of true cases
-ptwoormore <- sum(results)/simsize
+pthreeormore <- sum(results)/simsize
