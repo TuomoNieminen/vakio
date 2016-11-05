@@ -1,3 +1,5 @@
+# Compute cumulative proportions of 1, X and 2 outcomes
+
 # Tuomo A. Nieminen 23.10.2016
 
 # load the data

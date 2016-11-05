@@ -1,7 +1,7 @@
 # Tuomo A. Nieminen 23.10.2016
 
-# According to the data, the average probability of a hometeam win ("1") is 0.45
-# and the average probability of a draw or a loss are almost identical
+# According to the data, the proportion of hometeam wins ("1") is 0.45
+# and the proportions of draws and losses are almost identical
 
 # Here we compute the expected frequencies of rows with 0, 1, ..., 13 homewins 
 # and then compare to the observed frequencies
@@ -13,7 +13,7 @@
 # number of matches
 n <- 13
 
-# probability of home win in a given match
+# probability of homewin in a given match
 p <- 0.45
 
 # expected proportions using a binomial model
