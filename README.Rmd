@@ -14,23 +14,6 @@ table(do.call(c,rivit))
 ```
 
 
-# P(three or more identical rows)
-
-The data included three of the same rows, which should be somewhat unlikely because there are 
-
-```{r}
-3^13
-```
-
-unique possible rows.
-
-The probability of observing three or more identical rows during the years included in the data was therefore simulated. 
-
-```{r}
-source("prob_sim.R")
-```
-
-
 # Cumulative proportions
 
 Cumulative proportions of 1, X and 2 outcomes
@@ -51,3 +34,20 @@ Expected homewins assumption: the probability of a homewin is 0.45 for each matc
 source("homewins.R")
 ```
 
+# P(three or more identical rows)
+
+The data included three of the same rows, which should be somewhat unlikely because there are 
+
+```{r}
+3^13
+```
+
+unique possible rows.
+
+The probability of observing three or more identical rows during the years included in the data was therefore simulated. 
+
+In this simulation, we take into account that a homewin outcome is more probable than other outcomes. Therefore the distribution of rows is skewed toward rows with homewins.
+
+```{r}
+source("p_morethan2identical.R")
+```
