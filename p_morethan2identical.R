@@ -11,7 +11,6 @@ for(i in 1:N)  {# simulaatioiden lukumäärä
     rivi_string <-  paste(rivi, collapse = "") # rivi yhdeksi merkkijonoksi
     A[i,j] <- rivi_string
   }
-  if(i %% 100 == 0) print(paste("creating A, iter",i,"/",N))
 }
 
 # jäljellä on selvittää kuinka monessa taulukon A[i,] rivissä  esiintyy sama rivi (merkkijono) yli 2 kertaa
@@ -19,7 +18,6 @@ for(i in 1:N)  {# simulaatioiden lukumäärä
 montako <- 0
 for(i in 1:N) {
   montako <- montako + any(table(A[i,]) > 2) # esintyyko sama rivi yli 2 kertaa
-  if(i %% 100 == 0) print(paste("finding duplicate rows, iter",i,"/",N))
 }
                
 # haluttu frekvenssi (todennäköisyys) on siis nyt
