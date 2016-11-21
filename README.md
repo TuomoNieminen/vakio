@@ -87,7 +87,7 @@ The probability of observing three or more identical rows during the years obser
 A naive approach would be to assume that each possible row is observed with identical probability. Then, the probability would be:
 
 ```{r}
-source(pmorethan2identical_naive.R)
+source("p_morethan2identical_naive.R")
 ```
 
 ```
