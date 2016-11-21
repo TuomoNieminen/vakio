@@ -44,10 +44,17 @@ The data included three of the same rows, which should be somewhat unlikely beca
 
 unique possible rows.
 
-The probability of observing three or more identical rows during the years included in the data was therefore simulated. 
+The probability of observing three or more identical rows during the years observed in the data was therefore simulated. 
 
-In this simulation, we take into account that a homewin outcome is more probable than other outcomes. Therefore the distribution of rows is skewed toward rows with homewins.
+A naive approach would be to assume that each possible row is observed with identical probability. Then, the probability would be:
 
 ```{r}
+source(pmorethan2identical_naive.R)
+```
+
+However we know that a homewin is more probable than the other outcomes and therefore the distribution of rows is biased towards rows with homewins. In this second simulation, we take this into account and we get a significantly higher probability:
+
+
+```r
 source("p_morethan2identical.R")
 ```

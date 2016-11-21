@@ -1,13 +1,14 @@
 # Tuomo A. Nieminen 23.10.2016
 
 # simulate the probability P(three or more identical rows)
+# with the assumption that each row combination is as likely 
 # ---------------------------------------
 
 # load the data (to get the  number of rows)
 rivit <- read.csv2("Tilastot.csv", stringsAsFactors = FALSE)
 
 # the size of the simulation
-simsize <- 1e4
+simsize <- 10000
 
 # unique integers represent unique combinations of rows
 unique_rows <- 1:(3^13)
