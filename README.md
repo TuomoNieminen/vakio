@@ -1,6 +1,10 @@
 
 
+# Welcome to the Vakio repository
 
+This repository includes the codes for simple analysis of Finnish Vakio veikkaus (sports betting) data. The data includes results of soccer matches from the weeks and years 37/1972 - 40/2016, coded as "homewin" (1), "draw" (X), "awaywin" (2). One round of betting in Vakio involves predicting 1, X or 2 for 13 matches. This is called a "row".
+
+The analysis focuses on using the data for computing the expected "homewin" probability and then also computes some probabilities of observing inentical rows in the amount of rows found in the data.
 
 # Basic stats
 
@@ -86,21 +90,18 @@ The probability of observing three or more identical rows during the years obser
 
 A naive approach would be to assume that each possible row is observed with identical probability. Then, the probability would be:
 
-```{r}
+
+```r
 source("p_morethan2identical_naive.R")
 ```
 
 ```
-## [1] 0.0005
+## [1] 5e-04
 ```
 
-However we know that a homewin is more probable than the other outcomes and therefore the distribution of rows is biased towards rows with homewins. In this second simulation, we take this into account and we get significantly a higher probability:
+However we know that a homewin is more probable than the other outcomes and therefore the distribution of rows is biased towards rows with homewins. In this second simulation, we take this into account and we get a significantly higher probability:
 
 
 ```r
 source("p_morethan2identical.R")
-```
-
-```
-## [1] 0.008
 ```

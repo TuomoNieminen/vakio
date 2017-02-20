@@ -1,8 +1,12 @@
-
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+# Welcome to the Vakio repository
+
+This repository includes the codes for simple analysis of Finnish Vakio veikkaus (sports betting) data. The data includes results of soccer matches from the weeks and years 37/1972 - 40/2016, coded as "homewin" (1), "draw" (X), "awaywin" (2). One round of betting in Vakio involves predicting 1, X or 2 for 13 matches. This is called a "row".
+
+The analysis focuses on using the data for computing the expected "homewin" probability and then also computes some probabilities of observing inentical rows in the amount of rows found in the data.
 
 # Basic stats
 
